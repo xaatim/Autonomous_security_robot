@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+<xacro:property name="lidar_color" value="Gazebo/Gray" />
+
+
+<joint name="lidar_joint" type="fixed">
+  <parent link="base_link" />
+  <child link="laser_frame" />
+  <origin xyz="0.33 0.0275 0.23" rpy="0 0 0" />
+</joint>
+
+<link name="laser_frame">
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://scuttle_description/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://scuttle_description/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+  <inertial>
+    <mass value="0.05"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <inertia ixx="1e-4" iyy="1e-4" izz="1e-4" ixy="0" ixz="0" iyz="0"/>
+  </inertial>
+</link>
+
+<gazebo reference="laser_frame">
+  <material>Gazebo/Gray</material>
+
+  <sensor name="lidar" type="ray">
+    <pose>0 0 0 0 0 0</pose>
+    <visualize>true</visualize>
+    <update_rate>10</update_rate>
+
+    <ray>
+      <scan>
+        <horizontal>
+          <samples>360</samples>
+          <min_angle>-3.14</min_angle>
+          <max_angle>3.14</max_angle>
+        </horizontal>
+      </scan>
+      <range>
+        <min>0.15</min>
+        <max>12</max>
+      </range>
+    </ray>
+
+    <plugin name="lidar_plugin" filename="libgazebo_ros_ray_sensor.so">
+      <topicName>/scan</topicName>
+      <ros>
+        <remapping>~/out:=scan</remapping>
+      </ros>
+      <output_type>sensor_msgs/LaserScan</output_type>
+      <frame_name>laser_frame</frame_name>
+    </plugin>
+  </sensor>
+</gazebo>
+  
+</robot>

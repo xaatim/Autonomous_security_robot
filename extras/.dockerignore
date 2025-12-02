@@ -1,0 +1,10 @@
+build/
+install/
+log/
+.debs/
+*.snap
+.git
+__pycache__/
+*.pyc
+.github
+.vscode

@@ -1,0 +1,33 @@
+# ROS2 build artifacts
+/build/
+/install/
+/log/
+/src/log
+/src/ros2_test/build
+/src/ros2_test/install
+/src/ros2_test/log
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+b.f
+# CMake / colcon extras
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles/
+*.cmake
+*.swp
+*.snap
+
+# VSCode / IDE stuff
+.vscode/
+.idea/
+*.code-workspace
+
+# OS-specific junk
+.DS_Store
+Thumbs.db
+temp
+temp.sh
+.vscode/

@@ -1,0 +1,18 @@
+<library path="diffdrive_arduino">
+  <class name="diffdrive_arduino/DiffDriveArduino"
+         type="DiffDriveArduino"
+         base_class_type="hardware_interface::SystemInterface">
+    <description>
+      The diffdrive_arduino hardware interface.
+    </description>
+  </class>
+</library>
+<library path="fake_robot">
+  <class name="diffdrive_arduino/FakeRobot"
+         type="FakeRobot"
+         base_class_type="hardware_interface::SystemInterface">
+    <description>
+      The fake_robot hardware interface for simulation.
+    </description>
+  </class>
+</library>

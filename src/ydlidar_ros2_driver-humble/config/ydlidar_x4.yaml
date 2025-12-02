@@ -1,0 +1,23 @@
+ydlidar_ros2_driver_node:
+  ros__parameters:
+    port: /dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0001-if00-port0
+    frame_id: laser_frame
+    ignore_array: ""
+    baudrate: 115200        # Match what worked in tri_test
+    lidar_type: 1            # X4
+    device_type: 1           # Two-way (no one-way), adjust if needed
+    sample_rate: 5           # X4 supports 5K, see your table
+    abnormal_check_count: 4
+    resolution_fixed: true
+    reversion: true
+    inverted: true
+    auto_reconnect: true
+    isSingleChannel: false
+    intensity: false
+    support_motor_dtr: false
+    angle_max: 180.0
+    angle_min: -180.0
+    range_max: 10.0          # X4 max range ~10m
+    range_min: 0.12          # X4 min range ~0.12m
+    frequency: 11.0          # Match your measured scan frequency
+    invalid_range_is_inf: false
