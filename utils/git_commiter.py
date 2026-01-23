@@ -2,7 +2,7 @@ from git import Repo
 import os
 
 # Path to your local GitHub repo
-repo_path = "/home/hatim/Documents/Autonomous_security_robot"
+repo_path = "/home/hatim/Documents/Github/Autonomous_security_robot-myFyp-"
 commit_message = "changes"
 
 # Open repo
