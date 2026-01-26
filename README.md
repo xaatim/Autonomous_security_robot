@@ -36,7 +36,7 @@ This autonomous unit serves as the hardware flagship for **Beam Robotics**, a co
 ### 1. The Beam Platform
 The central hub for Beam Robotics products manages the ecosystem of deployed robots and provides a unified entry point for hardware control and monitoring.
 
-![Beam Robotics Landing Page](docs/product_showcase/beam_homepage.png)
+![Beam Robotics Landing Page](docs/showcase/beam_homepage.png)
 
 ### 2. Fleet Management & Robot Selection
 After authentication, customers access a private fleet interface showing only robots registered to their specific account.
@@ -44,12 +44,12 @@ After authentication, customers access a private fleet interface showing only ro
 * **Robot Registration:** Devices are added using a unique cryptographic key.
 * **Customization:** Configuration of robot-specific add-ons (GPS, sensors, modules).
 
-![Fleet Selection Interface](docs/product_showcase/beam_fleet_view.png)
+![Fleet Selection Interface](docs/showcase/beam_fleet_view.png)
 
 ### 3. Live Command Dashboard
 Selecting a robot opens its dedicated command center, featuring encrypted low-latency video feeds and real-time telemetry.
 
-![Client Dashboard UI](docs/product_showcase/client_dashboard_ui.png)
+![Client Dashboard UI](docs/showcase/client_dashboard_ui.png)
 
 ---
 
@@ -60,17 +60,17 @@ Our proprietary vision pipeline is optimized for real-world unpredictability and
 ### 1. Robustness to Environment
 The system maintains high accuracy in low-light environments (<50 lux) and performs reliably under direct sunlight and harsh indoor lighting.
 
-![Environmental Robustness](docs/product_showcase/environmental_robustness.png)
+![Environmental Robustness](docs/showcase/environmental_robustness.png)
 
 ### 2. Advanced Occlusion Handling
 The system detects and flags risks even when faces are partially occluded (e.g., masks) by utilizing facial geometry analysis rather than simple texture matching.
 
-![Occlusion Analysis](docs/product_showcase/occlusion_analysis.png)
+![Occlusion Analysis](docs/showcase/occlusion_analysis.png)
 
 ### 3. Tuning & Accuracy
 Validated on 200 real inference trials, the system achieved a **0% False Acceptance Rate (FAR)** at the optimal threshold.
 
-![Performance Metrics](docs/product_showcase/performance_metrics.png)
+![Performance Metrics](docs/showcase/performance_metrics.png)
 
 ---
 
