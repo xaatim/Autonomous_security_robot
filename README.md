@@ -1,14 +1,6 @@
-Markdown
-
 # 🤖 Autonomous Indoor Surveillance Robot (SCUTTLE-Intel AMR)
 
-![ROS 2 Humble](https://img.shields.io/badge/ROS_2-Humble-34495E?logo=ros&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3.10-3776AB?logo=python&logoColor=white)
-![InsightFace](https://img.shields.io/badge/AI-InsightFace-green)
-![License](https://img.shields.io/badge/License-MIT-blue.svg)
-![Status](https://img.shields.io/badge/Status-Stable-success)
-
-> **A fully autonomous mobile security unit featuring LiDAR SLAM, biometric intruder detection, and cloud-native fleet integration.**
+*A fully autonomous mobile security unit featuring LiDAR SLAM, biometric intruder detection, and cloud-native fleet integration.*
 
 ---
 
@@ -18,93 +10,144 @@ Markdown
   <img src="https://katapultasia.com/wp-content/uploads/2020/06/katapult-logo.png" height="50" alt="Katapult Asia">
 </a>
 
-**Special thanks to [Katapult Asia](https://katapultasia.com/)** (Malaysia) for providing the SCUTTLE-Intel AMR hardware platform and technical mentorship, enabling the real-world validation of this project.
+**Special thanks to Katapult Asia (Malaysia)** for providing the SCUTTLE-Intel AMR hardware platform and technical mentorship, enabling real-world validation of this project.
 
 ---
 
 ## 📖 Overview
 
-This project implements a modular surveillance system on the **SCUTTLE-Intel Autonomous Mobile Robot (AMR)**. Unlike traditional passive CCTVs, this robot autonomously patrols indoor environments, builds dynamic maps, and actively identifies intruders using edge-computed deep learning.
+This project implements a **modular indoor surveillance system** on the **SCUTTLE-Intel Autonomous Mobile Robot (AMR)**.  
+Unlike traditional passive CCTV systems, this robot:
+
+- Autonomously patrols indoor environments  
+- Builds dynamic maps using SLAM  
+- Actively identifies intruders using edge-computed deep learning  
 
 The system is built on **ROS 2 Humble** and integrates:
-* **Navigation:** Nav2 stack & SLAM Toolbox for mapping and dynamic path planning.
-* **Perception:** **InsightFace** for high-accuracy, real-time face recognition.
-* **Security:** A "Store-First" protocol that secures forensic evidence locally before transmission.
+
+- **Navigation**: Nav2 Stack & SLAM Toolbox for mapping and dynamic path planning  
+- **Perception**: InsightFace for high-accuracy, real-time face recognition  
+- **Security**: *Store-First Protocol* to secure forensic evidence locally before transmission  
 
 ---
 
 ## 🌐 Beam Robotics Integration (SaaS Ecosystem)
 
-This autonomous unit is designed to operate as the hardware flagship for **Beam Robotics**, a co-founded initiative focused on democratizing autonomous security.
+This autonomous unit serves as the **hardware flagship** for **Beam Robotics**, a co-founded initiative focused on secure, scalable robotic deployments with integrated monitoring dashboards.
 
-The system is architected to pair seamlessly with the **Beam Robotics** cloud infrastructure. Rather than operating in isolation, the robot integrates with a centralized command center designed for fleet management and remote accessibility.
+Each robot pairs with the **Beam Robotics cloud infrastructure**, providing **exclusive and encrypted access per device owner**.
 
-### 🔐 Secure Device Pairing
-The architecture supports a "Key-Based" pairing protocol. Each physical robot is issued a cryptographically unique identity key. Clients can register their devices directly to the Beam platform, establishing a secure, encrypted link between the edge device (the robot) and the user account.
+---
 
-### 🖥️ Centralized Command Dashboard
-Once paired, the robot synchronizes with the web-based dashboard. This interface allows clients to:
-* View low-latency, encrypted video feeds from anywhere.
-* Receive real-time intruder alerts and snapshots.
-* Monitor device health and battery status remotely.
+### 1. The Beam Platform (Home)
 
-![Beam Robotics Platform](./docs/product_showcase/beam_platform_overview.png)
-*Above: The Beam Robotics platform interface, demonstrating the centralized dashboard for managing paired security robots.*
+The central hub for Beam Robotics products.  
+It manages the ecosystem of deployed robots and provides a unified entry point for hardware control and monitoring.
+
+> *Above: Beam Robotics landing page*
+
+---
+
+### 2. Fleet Management & Robot Selection
+
+After login, customers access a **private fleet interface** showing only robots registered to their account.
+
+- **Exclusive Access**: Only the verified owner can access the robot dashboard  
+- **Robot Registration**: Devices are added using a unique cryptographic key  
+- **Customization**: Configure robot-specific add-ons (GPS, sensors, modules)
+
+> *Above: Fleet selection interface*
+
+---
+
+### 3. Live Command Dashboard
+
+Selecting a robot opens its **dedicated command center**:
+
+- Encrypted, low-latency video feeds  
+- Real-time alerts and telemetry  
+- Secure access restricted to the verified owner  
+
+> *Above: Active surveillance dashboard*
 
 ---
 
 ## 👁️ Computer Vision Performance
 
-Our proprietary vision pipeline is optimized for real-world unpredictability, outperforming standard educational baselines.
+Our proprietary vision pipeline is optimized for real-world unpredictability and exceeds standard academic baselines.
 
 ### 1. Robustness to Environment
-The system maintains high accuracy in extreme lighting conditions, from low-light server rooms (<50 lux) to direct sunlight.
 
-![Lighting Test](./docs/product_showcase/environmental_robustness.png)
+- Maintains high accuracy from **low-light environments (<50 lux)**  
+- Performs reliably under **direct sunlight and harsh indoor lighting**
 
 ### 2. Advanced Occlusion Handling
-Unlike standard recognizers that fail with face masks, our system analyzes facial geometry to flag potential security risks or identify users with partial occlusion.
 
-![Mask Test](./docs/product_showcase/occlusion_analysis.png)
+- Detects and flags risks even when faces are **partially occluded** (e.g., masks)  
+- Uses **facial geometry analysis**, not just texture matching
 
 ### 3. Tuning & Accuracy
-Calibrated on a validation set of 200 inference trials, we achieved a **0% False Acceptance Rate (FAR)** at our optimal threshold.
 
-![Metrics](./docs/product_showcase/performance_metrics.png)
+- Validated on **200 real inference trials**  
+- Achieved **0% False Acceptance Rate (FAR)** at optimal threshold
 
 ---
 
 ## 🎯 Key Technical Features
 
 ### 🧭 Autonomous Navigation
-* **SLAM:** Generates 2D occupancy grid maps using **SLAM Toolbox**.
-* **Path Planning:** Uses **Nav2** (Behavior Trees) for dynamic obstacle avoidance and waypoint patrolling.
-* **Localization:** Adaptive Monte Carlo Localization (AMCL) for precise pose estimation (±5 cm accuracy).
+
+- **SLAM**: 2D occupancy grid generation using SLAM Toolbox  
+- **Path Planning**: Nav2 (Behavior Trees) for dynamic obstacle avoidance  
+- **Localization**: AMCL with ±5 cm pose accuracy  
 
 ### 🧠 Intelligent Perception
-* **Face Recognition:** Utilizes `InsightFace` with Cosine Similarity scoring to distinguish between authorized personnel and intruders.
-* **Alert System:** Automatically captures snapshots of "Unknown" individuals and stores them locally (`store-first` protocol) before sending email alerts.
+
+- **Face Recognition**: InsightFace + Cosine Similarity scoring  
+- **Alert System**:
+  - Captures images of *Unknown* individuals  
+  - Stores evidence locally (*store-first protocol*)  
+  - Sends automated email alerts  
 
 ### 🖥️ Hardware Control
-* **Drive System:** Custom ROS 2 hardware interface for differential drive kinematics.
-* **Latency Optimization:** Custom threading ensures surveillance logic does not block critical navigation control loops (110ms average latency).
+
+- **Drive System**: Custom ROS 2 hardware interface (differential drive)  
+- **Latency Optimization**:
+  - Non-blocking surveillance threads  
+  - ~110 ms average system latency  
 
 ---
 
 ## 🧰 Tech Stack & Hardware
 
-### **Hardware Core**
-* **Compute:** Axiomtek Embedded Computer (Intel Architecture)
-* **Chassis:** SCUTTLE-Intel AMR Kit (Differential Drive)
-* **Sensors:** * **LiDAR:** YDLIDAR X2/X4 (2D Scanning)
-    * **Vision:** Intel RealSense D435i RGB-D Camera
-* **Actuators:** Cytron DC Motors + MD10C Drivers
+### 🔩 Hardware Core
 
-### **Software Architecture**
-* **OS:** Ubuntu 22.04 LTS (Jammy Jellyfish)
-* **Middleware:** ROS 2 Humble Hawksbill
-* **Languages:** Python 3.10, C++
-* **Libraries:** `rclpy`, `nav2_simple_commander`, `insightface`, `opencv-python`, `smtplib`.
+- **Compute**: Axiomtek Embedded Computer (Intel Architecture)  
+- **Chassis**: SCUTTLE-Intel AMR Kit (Differential Drive)  
+
+### 📡 Sensors
+
+- **LiDAR**: YDLIDAR X2 / X4 (2D scanning)  
+- **Vision**: Intel RealSense D435i (RGB-D)
+
+### ⚙️ Actuators
+
+- Cytron DC Motors  
+- MD10C Motor Drivers  
+
+---
+
+## 🧪 Software Architecture
+
+- **OS**: Ubuntu 22.04 LTS (Jammy Jellyfish)  
+- **Middleware**: ROS 2 Humble Hawksbill  
+- **Languages**: Python 3.10, C++  
+- **Libraries**:
+  - `rclpy`
+  - `nav2_simple_commander`
+  - `insightface`
+  - `opencv-python`
+  - `smtplib`
 
 ---
 
@@ -116,61 +159,80 @@ Autonomous-Security-Robot/
 │   ├── robot_kernel/          # Core system logic (launchers, integration)
 │   ├── robot_vision/          # InsightFace logic, camera nodes, alerting
 │   ├── generic_robot_driver/  # URDF models, hardware interfaces, params
-│   └── ydlidar_ros2_driver/   # Lidar sensor drivers
+│   └── ydlidar_ros2_driver/   # LiDAR sensor drivers
 ├── docs/
-│   └── product_showcase/      # Documentation assets & results
+│   └── product_showcase/      # Product results & Beam platform screenshots
 ├── maps/                      # Saved SLAM maps (.yaml / .pgm)
 ├── docker/                    # Docker containers for deployment
 └── README.md
+```
+---
 
-⚙️ Installation
-1. Prerequisites
+## ⚙️ Installation
 
-Ensure you are running Ubuntu 22.04 with ROS 2 Humble installed.
-2. Setup Workspace
-Bash
+### 1. Prerequisites
 
+* Ubuntu 22.04
+* ROS 2 Humble installed and sourced
+
+### 2. Setup Workspace
+
+```
 mkdir -p ~/scuttle_ws/src
 cd ~/scuttle_ws/src
-git clone [https://github.com/xaatim/Autonomous-Security-Robot.git](https://github.com/xaatim/Autonomous-Security-Robot.git) .
+git clone https://github.com/xaatim/Autonomous-Security-Robot.git .
+```
 
-3. Install Dependencies
-Bash
+### 3. Install Dependencies
 
+```
 cd ~/scuttle_ws
 rosdep update
 rosdep install --from-paths src --ignore-src -r -y
 pip install -r src/Autonomous_security_robot-myFyp-/requirements.txt
+```
 
-4. Build
-Bash
+### 4. Build
 
+```
 colcon build --symlink-install
 source install/setup.bash
+```
 
-🚀 Usage
-1. Launch Robot (Hardware & Drivers)
+---
 
-Bring up the motors, LiDAR, and camera drivers:
-Bash
+## 🚀 Usage
 
+### 1. Launch Robot (Hardware & Drivers)
+
+```bash
 ros2 launch generic_robot_driver scuttle_full.launch.py
+```
 
-2. Start Surveillance & Navigation
+### 2. Start Surveillance & Navigation
 
-Launch the navigation stack and face recognition nodes:
-Bash
-
+```bash
 ros2 launch robot_kernel robot_control_launch.py
+```
 
-👥 Contributors
+---
 
-    Hatim Ahmed Hassan - Lead Developer & Co-Founder (Beam Robotics) - Email
+## 👥 Contributors
 
-Acknowledgments
+**Hatim Ahmed Hassan**
+Lead Developer & Co-Founder (Beam Robotics)
+📧 *Email*
 
-    Katapult Asia for the hardware and technical mentorship.
+---
 
-📄 License
+## 🙏 Acknowledgments
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+* **Katapult Asia** — Hardware and technical mentorship
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**.
+See the `LICENSE` file for details.
+
