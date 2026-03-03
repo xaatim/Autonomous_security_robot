@@ -27,6 +27,9 @@ This project implements a modular indoor surveillance system on the SCUTTLE-Inte
 
 The system is built on **ROS 2 Humble** and integrates the Nav2 Stack for navigation, InsightFace for real-time recognition, and a Store-First Protocol to secure forensic evidence locally before cloud transmission.
 
+### Physical Prototype
+![Robot Physical Prototype](docs/showcase/robot_prototype.png)
+
 ---
 
 ## Beam Robotics Integration
@@ -143,7 +146,7 @@ git clone [https://github.com/xaatim/Autonomous-Security-Robot.git](https://gith
 cd ~/scuttle_ws
 rosdep update
 rosdep install --from-paths src --ignore-src -r -y
-pip install -r src/Autonomous_security_robot-myFyp-/requirements.txt
+pip install -r src/Autonomous_security_robot/requirements.txt
 
 ```
 
